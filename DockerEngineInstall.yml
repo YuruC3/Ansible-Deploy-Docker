@@ -19,6 +19,23 @@
           - curl
           - gnupg
 
+    # Uncomment code below to install ufw together with docker
+    # - name: install ufw
+    #   apt:
+    #     state: present
+    #     name:
+    #       - ufw
+
+    # - name: ufw allow ssh
+    #   ufw:
+    #     rule: allow
+    #     port: '22'
+    #     proto: tcp
+
+    # - name: enable ufw
+    #   ufw:
+    #     state: enabled
+
     - name: mkdir /etc/apt/keyrings
       file:
         path: /etc/apt/keyrings
