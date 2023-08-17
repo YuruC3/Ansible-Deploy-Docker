@@ -11,7 +11,7 @@
         cache_valid_time: 86400
         # cache_valid_time = One day
 
-    - name: Install dependencies
+    - name: dependencies
       apt:
         state: present
         name:
@@ -19,35 +19,35 @@
           - curl
           - gnupg
 
-    - name: Create directory /etc/apt/keyrings
+    - name: mkdir /etc/apt/keyrings
       file:
         path: /etc/apt/keyrings
         state: directory
         mode: '0755'
 
-    - name: Download Docker GPG key and generate
+    - name: download Docker GPG key 
       shell: curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
       args:
         executable: /bin/bash
 
-    - name: Set permissions for Docker GPG key
+    - name: set permissions for Docker GPG key
       file:
         path: /etc/apt/keyrings/docker.gpg
         mode: 'a+r'
 
-    - name: Add Docker APT repository
+    - name: add Docker repository
       shell: |
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
           $(. /etc/os-release && echo $VERSION_CODENAME) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
       args:
         executable: /bin/bash
 
-    - name: Update APT cache
+    - name: update 
       apt:
         update_cache: yes
         upgrade: yes
 
-    - name: Install Docker Engine
+    - name: install Docker Engine
       apt:
         state: present
         name:
