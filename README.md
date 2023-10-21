@@ -1,7 +1,7 @@
 # Ansible-Deploy-Docker
 Simple ansible playbook to deploy latest docker/docker-compose via ansible.
 
-Remember to change <CHANGE_ME>.
+Remember to change <CHANGE_ME> in playbook and <YOUR KEY HERE> in bash script.
 
 Also a bash script that creates a "ansible" user. You'll need to write your public key in script.
 
