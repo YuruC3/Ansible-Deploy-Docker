@@ -1,9 +1,20 @@
 # Ansible-Deploy-Docker
-Simple ansible playbook to deploy latest docker/docker-compose via ansible.
+Simple ansible playbook to deploy latest docker and docker-compose via ansible.
 
-Remember to change <CHANGE_ME> in playbook and <YOUR KEY HERE> in bash script.
+## Edit configs
 
-Also a bash script that creates a "ansible" user. You'll need to write your public key in script.
+### add_ansible_user.sh
 
-It is a good option to create a paswordless ssh key and copy it onto every machine you want to work with.
-Bash script is configured to work only with public keys.
+__<ANSIBLE_USERNAME>__ -- Set a username for ansible. Example "ansible"
+
+__<YOUR_PUBKEY>__ -- Paste your public key.
+
+__UID_INT__ -- This is optional. By default it is set to 1600. It makes it easier to distinguish ansible user from the rest 
+
+### DockerEngineInstall.yml
+
+The only thing to change here is __<CHANGE_HOSTS>__ at line 3. There you need to input IP of computers that ansible will run this playbook on.
+
+## PS
+
+In Proxmox if you have a VM template it is possible to paste multiple pubkeys. Go to template -> Cloud-Init -> SSH public key -> edit -> paste your pubkeys.

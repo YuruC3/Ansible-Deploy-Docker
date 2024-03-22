@@ -1,6 +1,6 @@
 ---
 - name: DockerAPI Install
-  hosts: <CHANGE_ME>
+  hosts: <CHANGE_HOSTS>
   become: yes
   tasks:
 
