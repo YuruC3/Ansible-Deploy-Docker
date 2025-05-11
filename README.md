@@ -1,6 +1,8 @@
 # Ansible-Deploy-Docker
 Simple ansible playbook to deploy latest docker and docker-compose via ansible.
 
+I'll be maybe developing it further on my own [gitea](https://tea.shupogaki.org/YuruC3/Ansible-Deploy-Docker) cuz it feels nicer to use than Github.
+
 ## Edit configs
 
 ### add_ansible_user.sh
